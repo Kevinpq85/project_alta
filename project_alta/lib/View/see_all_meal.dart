@@ -5,9 +5,9 @@ import 'package:project_alta/View/meal_detail_screen.dart';
 
 class SeeAllMeals extends StatelessWidget {
   const SeeAllMeals(
-      {Key? key, required this.ScreenTitle, required this.firstChar})
+      {Key? key, required this.screenTitle, required this.firstChar})
       : super(key: key);
-  final String ScreenTitle;
+  final String screenTitle;
   final String firstChar;
 
   @override
@@ -20,13 +20,13 @@ class SeeAllMeals extends StatelessWidget {
         titleSpacing: 0,
         elevation: 3,
         title: Text(
-          ScreenTitle,
+          screenTitle,
           style: const TextStyle(
-              color: Colors.black87, fontWeight: FontWeight.bold),
+              color: Color.fromARGB(221, 0, 0, 0), fontWeight: FontWeight.bold),
         ),
       ),
       body: FutureBuilder<List<MealModel>>(
-        future: MealData.GetMealByFirstChar('c'),
+        future: MealData().getMealByFirstChar('c'),
         builder: (context, snapshot) {
           return Padding(
             padding: const EdgeInsets.symmetric(horizontal: 10.0),
@@ -42,7 +42,7 @@ class SeeAllMeals extends StatelessWidget {
                           pageBuilder: (context, animation,
                                   secondaryAnimation) =>
                               MealDetailsScreen(
-                                  MealID:
+                                  mealId:
                                       snapshot.data![index].idMeal.toString()),
                           transitionsBuilder:
                               (context, animation, secondaryAnimation, child) {
@@ -95,7 +95,7 @@ class SeeAllMeals extends StatelessWidget {
                                 snapshot.hasData
                                     ? Text(
                                         snapshot.data![index].strMeal!,
-                                        maxLines: 2,
+                                        maxLines: 1,
                                         overflow: TextOverflow.ellipsis,
                                         style: const TextStyle(
                                           color: Colors.black,

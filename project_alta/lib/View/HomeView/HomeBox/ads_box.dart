@@ -2,15 +2,15 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 
 class AdsBox extends StatelessWidget {
-  AdsBox({Key? key, required this.revere}) : super(key: key);
+  AdsBox({Key? key, required this.reverse}) : super(key: key);
 
-  List<String> urlImageAds = [
-    'assets/images.jpg',
-    'assets/family-meal-deals-top-banner-100.jpg',
-    'assets/images (1).jpg',
+  final List<String> urlImageAds = [
+    'assets/menu.jpg',
+    'assets/baner.jpg',
+    'assets/resep.jpg',
     'assets/peakyblinders-platters.jpg',
   ];
-  final bool revere;
+  final bool reverse;
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +19,6 @@ class AdsBox extends StatelessWidget {
         options: CarouselOptions(
           height: 200,
           autoPlay: true,
-          reverse: revere,
           enlargeCenterPage: true,
           autoPlayInterval: const Duration(seconds: 4),
         ),
@@ -37,7 +36,7 @@ class AdsBox extends StatelessWidget {
                       fit: BoxFit.cover),
                   boxShadow: const [
                     BoxShadow(
-                      offset: Offset(0, 2),
+                      offset: Offset(0, 5),
                       blurRadius: 5,
                       color: Color.fromARGB(117, 0, 0, 0),
                     )

@@ -1,5 +1,3 @@
-// ignore_for_file: avoid_print
-
 import 'package:flutter/material.dart';
 import 'package:project_alta/Data_API/meal_by_data.dart';
 import 'package:project_alta/Model/meal_by_kategori_model.dart';
@@ -29,12 +27,10 @@ class MealsByCategotrieScreen extends StatelessWidget {
         ),
         body: FutureBuilder<List<MealsByCategorie>>(
           future: filterType == 'Kategori'
-              ? MealByData.GetMealByCategory(categoryname)
+              ? MealByData.getMealByCategori(categoryname)
               : filterType == 'Area'
-                  ? MealByData.GetMealByArea(categoryname)
-                  : filterType == 'Ingredient'
-                      ? MealByData.GetMealByCIntegration(categoryname)
-                      : null,
+                  ? MealByData.getMealByArea(categoryname)
+                  : null,
           builder: (context, snapshot) {
             return Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 10.0),
@@ -53,7 +49,7 @@ class MealsByCategotrieScreen extends StatelessWidget {
                               pageBuilder:
                                   (context, animation, secondaryAnimation) =>
                                       MealDetailsScreen(
-                                          MealID: snapshot.data![index].idMeal
+                                          mealId: snapshot.data![index].idMeal
                                               .toString()),
                               transitionsBuilder: (context, animation,
                                   secondaryAnimation, child) {

@@ -20,31 +20,30 @@ class HomeScreen extends StatelessWidget {
         shrinkWrap: true,
         children: [
           const HeaderBox(),
-          AdsBox(revere: false),
+          AdsBox(reverse: false),
           CategorieBox(
-            BoxTitle: 'Kategori',
+            boxTitle: 'Kategori',
             onPressed: () {
               Navigator.of(context).push(MaterialPageRoute(
                   builder: (BuildContext context) => const CategorieScreen()));
             },
           ),
           FoodBox(
-            FirstChar: 'c',
+            firstChar: 'c',
             boxTitle: 'Makanan Populer',
             onPressed: () {
               Navigator.push(
                   context,
                   MaterialPageRoute(
                       builder: (context) => const SeeAllMeals(
-                            ScreenTitle: 'Makanan Populer',
+                            screenTitle: 'Makanan Populer',
                             firstChar: 'c',
                           )));
             },
-            BoxTitle: '',
           ),
           ItemsBox(
             bkg: Colors.black,
-            futureList: AreaData.GetArea(),
+            futureList: AreaData().getArea(),
             filterType: 'Area',
           ),
         ],

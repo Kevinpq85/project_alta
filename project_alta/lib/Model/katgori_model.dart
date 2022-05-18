@@ -1,51 +1,25 @@
 class CategorieModel {
-  List<Categories>? categories;
+  String idCategory;
+  String strCategory;
+  String strCategoryThumb;
+  String strCategoryDescription;
 
-  CategorieModel({this.categories});
+  CategorieModel(
+      {required this.idCategory,
+      required this.strCategory,
+      required this.strCategoryDescription,
+      required this.strCategoryThumb});
 
-  CategorieModel.fromJson(Map<String, dynamic> json) {
-    if (json['Kategori'] != null) {
-      categories = <Categories>[];
-      json['Kategori'].forEach((v) {
-        categories!.add(Categories.fromJson(v));
-      });
-    }
-  }
+  factory CategorieModel.fromJson(Map<String, dynamic> json) => CategorieModel(
+      idCategory: json['idCategory'],
+      strCategory: json['strCategory'],
+      strCategoryDescription: json['strCategoryDescription'],
+      strCategoryThumb: json['strCategoryThumb']);
 
-  Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = <String, dynamic>{};
-    if (categories != null) {
-      data['Kategori'] = categories!.map((v) => v.toJson()).toList();
-    }
-    return data;
-  }
-}
-
-class Categories {
-  String? idCategory;
-  String? strCategory;
-  String? strCategoryThumb;
-  String? strCategoryDescription;
-
-  Categories(
-      {this.idCategory,
-      this.strCategory,
-      this.strCategoryThumb,
-      this.strCategoryDescription});
-
-  Categories.fromJson(Map<String, dynamic> json) {
-    idCategory = json['idCategory'];
-    strCategory = json['strCategory'];
-    strCategoryThumb = json['strCategoryThumb'];
-    strCategoryDescription = json['strCategoryDescription'];
-  }
-
-  Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = <String, dynamic>{};
-    data['idCategory'] = idCategory;
-    data['strCategory'] = strCategory;
-    data['strCategoryThumb'] = strCategoryThumb;
-    data['strCategoryDescription'] = strCategoryDescription;
-    return data;
-  }
+  Map<String, dynamic> toJson() => {
+        'idCategory': idCategory,
+        'strCategory': strCategory,
+        'strCategoryDescription': strCategoryDescription,
+        'strCategoryThumb': strCategoryThumb
+      };
 }

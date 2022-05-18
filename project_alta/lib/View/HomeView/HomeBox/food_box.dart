@@ -6,18 +6,17 @@ import 'package:project_alta/View/meal_detail_screen.dart';
 class FoodBox extends StatelessWidget {
   const FoodBox({
     Key? key,
-    required this.FirstChar,
+    required this.firstChar,
     required this.boxTitle,
     required this.onPressed,
-    required String BoxTitle,
   }) : super(key: key);
-  final String FirstChar;
+  final String firstChar;
   final String boxTitle;
   final VoidCallback onPressed;
   @override
   Widget build(BuildContext context) {
     return FutureBuilder<List<MealModel>>(
-      future: MealData.GetMealByFirstChar(FirstChar),
+      future: MealData().getMealByFirstChar(firstChar),
       builder: (context, snapshot) {
         return SizedBox(
           width: double.infinity,
@@ -87,7 +86,7 @@ class FoodBox extends StatelessWidget {
                           context,
                           MaterialPageRoute(
                               builder: (context) => MealDetailsScreen(
-                                  MealID: snapshot.data![index].idMeal
+                                  mealId: snapshot.data![index].idMeal
                                       .toString())));
                     },
                     child: Container(
@@ -132,7 +131,7 @@ class FoodBox extends StatelessWidget {
                                 snapshot.hasData
                                     ? Text(
                                         snapshot.data![index].strMeal!,
-                                        maxLines: 2,
+                                        maxLines: 1,
                                         overflow: TextOverflow.ellipsis,
                                         style: const TextStyle(
                                           color: Colors.black,
@@ -140,18 +139,9 @@ class FoodBox extends StatelessWidget {
                                           fontWeight: FontWeight.w800,
                                         ),
                                       )
-                                    : Container(
-                                        height: 15,
-                                        width: 130,
-                                        decoration: BoxDecoration(
-                                          borderRadius:
-                                              BorderRadius.circular(7),
-                                          color: Colors.grey.shade300,
-                                        ),
+                                    : const SizedBox(
+                                        height: 5,
                                       ),
-                                const SizedBox(
-                                  height: 5,
-                                ),
                                 Row(
                                   crossAxisAlignment: CrossAxisAlignment.center,
                                   children: [
@@ -161,8 +151,9 @@ class FoodBox extends StatelessWidget {
                                                 ' - ' +
                                                 snapshot.data![index].strArea!,
                                             overflow: TextOverflow.ellipsis,
-                                            style: TextStyle(
-                                              color: Colors.grey.shade500,
+                                            style: const TextStyle(
+                                              color:
+                                                  Color.fromARGB(255, 7, 7, 7),
                                               fontSize: 14,
                                               fontWeight: FontWeight.w400,
                                             ),
@@ -173,7 +164,6 @@ class FoodBox extends StatelessWidget {
                                             decoration: BoxDecoration(
                                               borderRadius:
                                                   BorderRadius.circular(7),
-                                              color: Colors.grey.shade300,
                                             ),
                                           ),
                                   ],

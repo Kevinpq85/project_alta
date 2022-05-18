@@ -1,13 +1,11 @@
-import 'dart:io';
-
 import 'package:flutter/material.dart';
 import 'package:project_alta/Data_API/meal_data.dart';
 import 'package:project_alta/Model/meal_model.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class MealDetailsScreen extends StatelessWidget {
-  const MealDetailsScreen({Key? key, required this.MealID}) : super(key: key);
-  final String MealID;
+  const MealDetailsScreen({Key? key, required this.mealId}) : super(key: key);
+  final String mealId;
 
   @override
   Widget build(BuildContext context) {
@@ -17,9 +15,9 @@ class MealDetailsScreen extends StatelessWidget {
       body: Stack(
         children: [
           FutureBuilder<List<MealModel>>(
-            future: MealData.GetMealByID(MealID),
+            future: MealData.getMealById(mealId),
             builder: (context, snapshot) {
-              List<dynamic> Ingredient = snapshot.hasData
+              List<dynamic> ingredient = snapshot.hasData
                   ? [
                       snapshot.data![0].strIngredient1,
                       snapshot.data![0].strIngredient2,
@@ -43,7 +41,7 @@ class MealDetailsScreen extends StatelessWidget {
                       snapshot.data![0].strIngredient20,
                     ]
                   : [];
-              List<dynamic> Measure = snapshot.hasData
+              List<dynamic> measure = snapshot.hasData
                   ? [
                       snapshot.data![0].strMeasure1,
                       snapshot.data![0].strMeasure2,
@@ -167,8 +165,8 @@ class MealDetailsScreen extends StatelessWidget {
                                           shrinkWrap: true,
                                           itemCount: 20,
                                           itemBuilder: (context, index) {
-                                            return Ingredient[index] != "" &&
-                                                    Ingredient[index] != null
+                                            return ingredient[index] != "" &&
+                                                    ingredient[index] != null
                                                 ? Padding(
                                                     padding: const EdgeInsets
                                                             .symmetric(
@@ -177,7 +175,7 @@ class MealDetailsScreen extends StatelessWidget {
                                                       children: [
                                                         Text(
                                                           ' - ' +
-                                                              Ingredient[index],
+                                                              ingredient[index],
                                                           style: TextStyle(
                                                             color: Colors
                                                                 .grey.shade800,
@@ -189,12 +187,12 @@ class MealDetailsScreen extends StatelessWidget {
                                                         const SizedBox(
                                                           width: 5,
                                                         ),
-                                                        Measure[index] != "" &&
-                                                                Measure[index] !=
+                                                        measure[index] != "" &&
+                                                                measure[index] !=
                                                                     null
                                                             ? Text(
                                                                 ': ' +
-                                                                    Measure[
+                                                                    measure[
                                                                         index],
                                                                 style:
                                                                     TextStyle(

@@ -23,7 +23,7 @@ class _SplachScreenState extends State<SplachScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xffC3211A),
+      backgroundColor: const Color.fromARGB(255, 255, 255, 255),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -35,7 +35,7 @@ class _SplachScreenState extends State<SplachScreen> {
                 borderRadius: BorderRadius.circular(7),
                 image: const DecorationImage(
                     image: AssetImage(
-                      'assets/user.png',
+                      'assets/koki.jpg',
                     ),
                     fit: BoxFit.cover),
               ),
@@ -49,8 +49,7 @@ class _SplachScreenState extends State<SplachScreen> {
                 Text(
                   'Selamat Datang ',
                   style: TextStyle(
-                    // fontFamily: 'Dancing',
-                    color: Colors.white,
+                    color: Color.fromARGB(255, 242, 1, 1),
                     fontSize: 35,
                     fontWeight: FontWeight.w600,
                   ),
@@ -58,7 +57,6 @@ class _SplachScreenState extends State<SplachScreen> {
                 Text(
                   'Guest',
                   style: TextStyle(
-                    // fontFamily: 'Dancing',
                     color: Colors.black,
                     fontSize: 35,
                     fontWeight: FontWeight.w200,

@@ -1,7 +1,6 @@
 class MealModel {
   String? idMeal;
   String? strMeal;
-  Null? strDrinkAlternate;
   String? strCategory;
   String? strArea;
   String? strInstructions;
@@ -49,69 +48,62 @@ class MealModel {
   String? strMeasure19;
   String? strMeasure20;
   String? strSource;
-  Null? strImageSource;
-  Null? strCreativeCommonsConfirmed;
-  Null? dateModified;
 
-  MealModel(
-      {this.idMeal,
-      this.strMeal,
-      this.strDrinkAlternate,
-      this.strCategory,
-      this.strArea,
-      this.strInstructions,
-      this.strMealThumb,
-      this.strTags,
-      this.strYoutube,
-      this.strIngredient1,
-      this.strIngredient2,
-      this.strIngredient3,
-      this.strIngredient4,
-      this.strIngredient5,
-      this.strIngredient6,
-      this.strIngredient7,
-      this.strIngredient8,
-      this.strIngredient9,
-      this.strIngredient10,
-      this.strIngredient11,
-      this.strIngredient12,
-      this.strIngredient13,
-      this.strIngredient14,
-      this.strIngredient15,
-      this.strIngredient16,
-      this.strIngredient17,
-      this.strIngredient18,
-      this.strIngredient19,
-      this.strIngredient20,
-      this.strMeasure1,
-      this.strMeasure2,
-      this.strMeasure3,
-      this.strMeasure4,
-      this.strMeasure5,
-      this.strMeasure6,
-      this.strMeasure7,
-      this.strMeasure8,
-      this.strMeasure9,
-      this.strMeasure10,
-      this.strMeasure11,
-      this.strMeasure12,
-      this.strMeasure13,
-      this.strMeasure14,
-      this.strMeasure15,
-      this.strMeasure16,
-      this.strMeasure17,
-      this.strMeasure18,
-      this.strMeasure19,
-      this.strMeasure20,
-      this.strSource,
-      this.strImageSource,
-      this.strCreativeCommonsConfirmed,
-      this.dateModified});
+  MealModel({
+    this.idMeal,
+    this.strMeal,
+    this.strCategory,
+    this.strArea,
+    this.strInstructions,
+    this.strMealThumb,
+    this.strTags,
+    this.strYoutube,
+    this.strIngredient1,
+    this.strIngredient2,
+    this.strIngredient3,
+    this.strIngredient4,
+    this.strIngredient5,
+    this.strIngredient6,
+    this.strIngredient7,
+    this.strIngredient8,
+    this.strIngredient9,
+    this.strIngredient10,
+    this.strIngredient11,
+    this.strIngredient12,
+    this.strIngredient13,
+    this.strIngredient14,
+    this.strIngredient15,
+    this.strIngredient16,
+    this.strIngredient17,
+    this.strIngredient18,
+    this.strIngredient19,
+    this.strIngredient20,
+    this.strMeasure1,
+    this.strMeasure2,
+    this.strMeasure3,
+    this.strMeasure4,
+    this.strMeasure5,
+    this.strMeasure6,
+    this.strMeasure7,
+    this.strMeasure8,
+    this.strMeasure9,
+    this.strMeasure10,
+    this.strMeasure11,
+    this.strMeasure12,
+    this.strMeasure13,
+    this.strMeasure14,
+    this.strMeasure15,
+    this.strMeasure16,
+    this.strMeasure17,
+    this.strMeasure18,
+    this.strMeasure19,
+    this.strMeasure20,
+    this.strSource,
+  });
 
   MealModel.fromJson(Map<String, dynamic> json) {
     idMeal = json['idMeal'];
     strMeal = json['strMeal'];
-    strDrinkAlternate = json['strDrinkAlternate'];
     strCategory = json['strCategory'];
     strArea = json['strArea'];
     strInstructions = json['strInstructions'];
@@ -159,16 +151,12 @@ class MealModel {
     strMeasure19 = json['strMeasure19'];
     strMeasure20 = json['strMeasure20'];
     strSource = json['strSource'];
-    strImageSource = json['strImageSource'];
-    strCreativeCommonsConfirmed = json['strCreativeCommonsConfirmed'];
-    dateModified = json['dateModified'];
   }
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = <String, dynamic>{};
     data['idMeal'] = idMeal;
     data['strMeal'] = strMeal;
-    data['strDrinkAlternate'] = strDrinkAlternate;
     data['strCategory'] = strCategory;
     data['strArea'] = strArea;
     data['strInstructions'] = strInstructions;
@@ -216,9 +204,6 @@ class MealModel {
     data['strMeasure19'] = strMeasure19;
     data['strMeasure20'] = strMeasure20;
     data['strSource'] = strSource;
-    data['strImageSource'] = strImageSource;
-    data['strCreativeCommonsConfirmed'] = strCreativeCommonsConfirmed;
-    data['dateModified'] = dateModified;
     return data;
   }
 }

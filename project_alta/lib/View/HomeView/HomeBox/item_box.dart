@@ -20,21 +20,10 @@ class ItemsBox extends StatelessWidget {
         return ItemShape(
           filterType: filterType,
           bkg: bkg,
-          AreaList: snapshot.hasData ? snapshot.data! : [],
+          areaList: snapshot.hasData ? snapshot.data! : [],
         );
       },
     );
-  }
-}
-
-class ItemShapeSchema extends StatelessWidget {
-  const ItemShapeSchema({
-    Key? key,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Container();
   }
 }
 
@@ -42,11 +31,11 @@ class ItemShape extends StatelessWidget {
   const ItemShape({
     Key? key,
     required this.bkg,
-    required this.AreaList,
+    required this.areaList,
     required this.filterType,
   }) : super(key: key);
   final Color bkg;
-  final List<String> AreaList;
+  final List<String> areaList;
   final String filterType;
 
   @override
@@ -60,16 +49,16 @@ class ItemShape extends StatelessWidget {
       child: ListView.builder(
         shrinkWrap: true,
         scrollDirection: Axis.horizontal,
-        itemCount: AreaList.isNotEmpty ? AreaList.length : 15,
+        itemCount: areaList.isNotEmpty ? areaList.length : 15,
         itemBuilder: (context, index) {
-          return AreaList.isNotEmpty
+          return areaList.isNotEmpty
               ? GestureDetector(
                   onTap: () {
                     Navigator.push(
                         context,
                         MaterialPageRoute(
                           builder: (context) => MealsByCategotrieScreen(
-                            categoryname: AreaList[index].toString(),
+                            categoryname: areaList[index].toString(),
                             filterType: filterType,
                           ),
                         ));
@@ -84,7 +73,7 @@ class ItemShape extends StatelessWidget {
                       color: bkg,
                     ),
                     child: Text(
-                      AreaList[index].toString(),
+                      areaList[index].toString(),
                       style: const TextStyle(
                         color: Colors.white,
                         fontSize: 14,

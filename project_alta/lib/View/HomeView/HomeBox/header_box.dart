@@ -53,7 +53,7 @@ class HeaderBox extends StatelessWidget {
           const SizedBox(width: 20),
           InkWell(
             onTap: (() {
-              print('Go To Profile');
+              // print('Go To Profile');
             }),
             child: Container(
               height: 43,
@@ -62,7 +62,7 @@ class HeaderBox extends StatelessWidget {
                   borderRadius: BorderRadius.circular(7),
                   image: const DecorationImage(
                       image: AssetImage(
-                        'assets/user.png',
+                        'assets/koki.jpg',
                       ),
                       fit: BoxFit.cover),
                   boxShadow: const [

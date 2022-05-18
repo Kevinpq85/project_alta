@@ -2,24 +2,17 @@ import 'package:dio/dio.dart';
 import 'package:project_alta/Model/katgori_model.dart';
 
 class CategorieData {
-  static Future<List<Categories>> GetCategories() async {
-    Response response = await Dio()
+  Future<List<CategorieModel>> getcategories() async {
+    final Response response = await Dio()
         .get('https://www.themealdb.com/api/json/v1/1/categories.php');
 
-    return (response.data['categories'] as List)
-        .map((e) => Categories.fromJson(e))
+    final responseData = (response.data['categories'] as List)
+        .map((e) => CategorieModel(
+            idCategory: e['idCategory'],
+            strCategory: e['strCategory'],
+            strCategoryDescription: e['strCategoryDescription'],
+            strCategoryThumb: e['strCategoryThumb']))
         .toList();
-  }
-
-  static Future<List<String>> GetCategorieTitle() async {
-    Response response = await Dio()
-        .get('https://www.themealdb.com/api/json/v1/1/categories.php');
-
-    List<String> CategorieTitleList = [];
-    for (int i = 0; i < response.data['categories'].length; i++) {
-      CategorieTitleList.add(response.data['categories'][i]['strCategory']);
-    }
-
-    return CategorieTitleList;
+    return responseData;
   }
 }

@@ -23,28 +23,18 @@ class IngredientModel {
 
 class Meals {
   String? idIngredient;
-  String? strIngredient;
-  String? strDescription;
   String? strType;
 
-  Meals(
-      {this.idIngredient,
-      this.strIngredient,
-      this.strDescription,
-      this.strType});
+  Meals({this.idIngredient, this.strType});
 
   Meals.fromJson(Map<String, dynamic> json) {
     idIngredient = json['idIngredient'];
-    strIngredient = json['strIngredient'];
-    strDescription = json['strDescription'];
     strType = json['strType'];
   }
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = <String, dynamic>{};
     data['idIngredient'] = idIngredient;
-    data['strIngredient'] = strIngredient;
-    data['strDescription'] = strDescription;
     data['strType'] = strType;
     return data;
   }

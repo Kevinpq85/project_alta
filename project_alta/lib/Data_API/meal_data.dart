@@ -2,31 +2,21 @@ import 'package:dio/dio.dart';
 import 'package:project_alta/Model/meal_model.dart';
 
 class MealData {
-  static Future<List<MealModel>> GetMealByFirstChar(
-      String FirstCharachter) async {
+  Future<List<MealModel>> getMealByFirstChar(String firstCharacter) async {
     Response response = await Dio().get(
-        'https://www.themealdb.com/api/json/v1/1/search.php?f=$FirstCharachter');
+        'https://www.themealdb.com/api/json/v1/1/search.php?f=$firstCharacter');
 
     return (response.data['meals'] as List)
         .map((e) => MealModel.fromJson(e))
         .toList();
   }
 
-  static Future<List<MealModel>> GetMealByID(String ID) async {
+  static Future<List<MealModel>> getMealById(String id) async {
     Response response = await Dio()
-        .get('https://www.themealdb.com/api/json/v1/1/lookup.php?i=$ID');
+        .get('https://www.themealdb.com/api/json/v1/1/lookup.php?i=$id');
 
     return (response.data['meals'] as List)
         .map((e) => MealModel.fromJson(e))
         .toList();
   }
-
-  // static Future<void> printMealByID(String ID) async {
-  //   Response response = await Dio()
-  //       .get('https://www.themealdb.com/api/json/v1/1/lookup.php?i=$ID');
-
-  //   print((response.data['meals'] as List)
-  //       .map((e) => MealModel.fromJson(e))
-  //       .toList());
-  // }
 }
