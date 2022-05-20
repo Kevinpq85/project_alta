@@ -5,6 +5,7 @@ import 'package:project_alta/View/HomeView/HomeBox/food_box.dart';
 import 'package:project_alta/View/HomeView/HomeBox/header_box.dart';
 import 'package:project_alta/View/HomeView/HomeBox/item_box.dart';
 import 'package:project_alta/View/HomeView/HomeBox/kategori_box.dart';
+import 'package:project_alta/View/Report/report_screen.dart';
 import 'package:project_alta/View/kategori_screen.dart';
 import 'package:project_alta/View/see_all_meal.dart';
 
@@ -15,6 +16,14 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
+      floatingActionButton: FloatingActionButton(
+        child: const Icon(Icons.report),
+        backgroundColor: const Color.fromARGB(255, 255, 0, 0),
+        onPressed: () {
+          Navigator.of(context).push(MaterialPageRoute(
+              builder: (_) => const ReportScreen(judul: "Isi Laporan")));
+        },
+      ),
       body: ListView(
         physics: const BouncingScrollPhysics(),
         shrinkWrap: true,
